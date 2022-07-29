@@ -1,0 +1,26 @@
+#include<climits>
+int getHeight(TreeNode<int>* root) {
+    // Write your code here
+    if(root==NULL)
+    {
+        return 0;
+        
+    }
+    if(root->children.size()==0)
+    {
+        return 1;
+    }
+    
+    int ht=INT_MIN;
+    int temp=0;
+    
+    for(int i=0;i<root->children.size();i++)
+    {
+        temp=1+getHeight(root->children[i]);
+        if(temp>ht)
+        {
+            ht=temp;
+        }
+    }
+    return ht;
+}
